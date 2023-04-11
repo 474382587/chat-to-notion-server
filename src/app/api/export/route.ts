@@ -59,14 +59,13 @@ export async function POST(request: Request) {
   }
 
   const data = await notion.search({
-    query: 'GPT',
     sort: {
       direction: 'descending',
       timestamp: 'last_edited_time',
     },
   });
 
-  addItem(title || new Date().getTime().toString(), data.results[0].id);
+  await addItem(title || new Date().getTime().toString(), data.results[0].id);
   //
 
   return new Response('access_token');
