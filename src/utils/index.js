@@ -14,7 +14,7 @@ export async function exchangeCodeForToken(code) {
       {
         grant_type: 'authorization_code',
         code,
-        redirect_uri: 'http://localhost:3001/api/redirect',
+        redirect_uri: 'https://chat-to-notion-server.vercel.app/api/redirect',
       },
       {
         headers: {
