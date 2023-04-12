@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   const res = await request.json();
   console.log(res, 'res');
   const { textContent, accessToken, title, pageId } = res;
-  console.log(accessToken, 'accessToken');
+  console.log(accessToken, 'accessToken', pageId, 'pageId');
   //
   const notion = new Client({ auth: accessToken });
 
