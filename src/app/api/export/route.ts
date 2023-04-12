@@ -8,7 +8,7 @@ export async function OPTIONS(request: Request) {
 export async function POST(request: Request) {
   const res = await request.json();
   console.log(res, 'res');
-  const { textContent, accessToken, title } = res;
+  const { textContent, accessToken, title, pageId } = res;
   console.log(accessToken, 'accessToken');
   //
   const notion = new Client({ auth: accessToken });
@@ -65,7 +65,7 @@ export async function POST(request: Request) {
     },
   });
 
-  await addItem(title || new Date().getTime().toString(), data.results[0].id);
+  await addItem(title || new Date().getTime().toString(), pageId || data.results[0].id);
   //
 
   return new Response('access_token');
